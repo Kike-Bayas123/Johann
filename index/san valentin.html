@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín - Poema para ti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://www.transparenttextures.com/patterns/heart-on-fire.png'), #f9f0f6; /* Fondo de corazones con color suave */
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            color: #3c3c3c;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-y: auto;
+        }
+        h1 {
+            font-size: 45px;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 3s ease-in-out, slideIn 2s ease-out;
+            font-family: 'Playfair Display', serif;
+            color: #ff3366; /* Color legible en fondo romántico */
+        }
+        .corazon {
+            font-size: 350px;
+            color: #ff4c7d;
+            cursor: pointer;
+            animation: pulseHeart 1.5s infinite;
+            transition: transform 0.3s ease;
+        }
+        .corazon:hover {
+            transform: scale(1.1);
+        }
+        .poema {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: justify;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInText 5s ease-in-out forwards, scaleUp 2s ease-in-out forwards;
+            font-family: 'Playfair Display', serif;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            max-height: 400px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            color: #fff;
+        }
+        .highlight {
+            color: #ffbbff;
+            font-weight: bold;
+        }
+        .heart {
+            font-size: 100px;
+            animation: bounceHeart 2s infinite;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background-color: #ff7f7f;
+            color: white;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .button:hover {
+            background-color: #ffbbff;
+        }
+        .hidden {
+            display: none;
+        }
+        .no {
+            font-size: 18px;
+            transition: all 1s ease;
+        }
+        .yes {
+            font-size: 24px;
+            transition: all 1s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes scaleUp {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes bounceHeart {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .mensaje {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            margin: 20px;
+            text-align: justify;
+            opacity: 0;
+            animation: fadeInText 3s ease-in-out forwards;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 700px;
+            color: #ffffff;
+        }
+        .rosa {
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 18px;
+            color: #b39ddb;
+            text-align: center;
+            margin-top: 20px;
+            animation: flowerAnimation 5s infinite;
+        }
+        .rosa span {
+            display: block;
+            font-size: 24px;
+            margin: 5px;
+        }
+        .mensajeDiv {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            margin-top: 30px;
+            max-width: 800px;
+            color: #fff;
+            text-align: center;
+        }
+        .teamo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 60px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ff7f7f;
+        }
+
+        @keyframes flowerAnimation {
+            0% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="corazonDiv">
+        <span class="corazon" id="corazon">💖</span>
+    </div>
+
+    <h1 id="pregunta" class="hidden">
+        ¿Quieres ver mi detalle por San Valentín Johanna?
+    </h1>
+    <button id="siBtn" class="button yes hidden">Sí</button>
+    <button id="noBtn" class="button no hidden">No</button>
+
+    <div id="poema" class="hidden">
+        <h1>El detalle de mi amor</h1>
+        <div class="poema">
+            <p><span class="highlight">Desde el primer momento en que te vi, supe que mi vida cambiaría por completo.</span> Tu sonrisa iluminó mi mundo, y desde entonces, mi corazón solo tiene un latido: el que marca tu amor.<br>
+            Cada mirada, cada palabra tuya se convierte en un tesoro que guardo en lo más profundo de mi ser. <span class="highlight">Eres mi razón para seguir adelante,</span> mi inspiración, mi todo.<br>
+            No hay distancia ni barrera que me impida amarte. Cada día a tu lado es un regalo que agradezco, y cada segundo sin ti, es un suspiro que se ahoga en mi pecho.<br>
+            Mi amor por ti es inmenso, es infinito. Te prometo que estaré aquí siempre, en los días de sol y en los de lluvia, <span class="highlight">seré tu refugio, tu paz, tu alegría.</span> No hay nada que desee más que compartir contigo cada momento de mi vida.<br>
+            Cuando miro al futuro, solo veo tu rostro, tus ojos, tu alma. No imagino un mañana sin ti, porque eres mi todo. Y lo serás por siempre, mi amor eterno.</p>
+
+            <p>Hoy te ofrezco este poema, que es un reflejo de lo que siento por ti. Cada palabra escrita aquí lleva mi amor, mi dedicación y mi más sincera admiración por la persona que eres. <span class="highlight">Te amo más de lo que las palabras pueden expresar,</span> y mi corazón late por ti con cada respiración.<br>
+            <span class="highlight">Eres la melodía que da ritmo a mi vida,</span> el sueño que nunca quiero despertar. Y si algún día las estrellas dejan de brillar, mi amor por ti seguiría siendo el faro que ilumina nuestro camino.<br>
+            Siempre estaré a tu lado, porque en este amor encontré mi hogar, mi paz y mi razón de ser. Te amo con toda mi alma y prometo que cada día me esforzaré por ser la mejor versión de mí mismo, por ti, por nosotros.</p>
+        </div>
+        <div class="heart">💖</div>
+
+        <!-- Mensaje que querías debajo del poema -->
+        <div class="mensaje">
+            <p>Gracias por todo lo que me has ayudado, por todas las adversidades que he pasado, no puedo desear mejor mujer que a ti en mi vida, gracias por todo el sacrificio que has hecho por mí, por mis dramas, berrinches, mis inseguridades, mis defectos, que a pesar de todo sigo cambiando y aprendiendo a ser más humano, más sensible. Solo tenme paciencia que seré y me convertiré en el hombre que tanto deseaste en tu vida. Gracias por hacerme quien soy, este hombre de bien que no se rinde por tu apoyo incondicional. Perdóname por todos mis errores, pero en realidad eres lo mejor que me ha pasado en esta vida. Te amo, te quiero y te admiro...</p>
+        </div>
+        <div class="rosa">
+            <span>🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸</span>
+            <span>🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸</span>
+            <span>🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸</span>
+        </div>
+        <div class="teamo">TE AMO</div>
+    </div>
+
+    <script>
+        const corazon = document.getElementById('corazon');
+        const pregunta = document.getElementById('pregunta');
+        const siBtn = document.getElementById('siBtn');
+        const noBtn = document.getElementById('noBtn');
+        const poema = document.getElementById('poema');
+        const corazonDiv = document.getElementById('corazonDiv');
+
+        corazon.addEventListener('click', function() {
+            corazonDiv.classList.add('hidden');
+            pregunta.classList.remove('hidden');
+            siBtn.classList.remove('hidden');
+            noBtn.classList.remove('hidden');
+        });
+
+        siBtn.addEventListener('click', function() {
+            poema.classList.remove('hidden');
+            pregunta.classList.add('hidden');
+            siBtn.classList.add('hidden');
+            noBtn.classList.add('hidden');
+        });
+
+        noBtn.addEventListener('click', function() {
+            noBtn.style.fontSize = '10px';
+            noBtn.style.opacity = '0';
+            siBtn.style.fontSize = '40px';
+        });
+    </script>
+</body>
+</html>
